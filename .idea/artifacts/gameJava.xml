@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gameJava">
+    <output-path>$PROJECT_DIR$/out/artifacts/gameJava</output-path>
+    <root id="archive" name="gameJava.war">
+      <element id="javaee-facet-resources" facet="gameJava/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="gameJava" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
