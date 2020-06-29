@@ -4,6 +4,7 @@ public class user {
     String email;
     String password;
     String name;
+    int id;
     public void setEmail(String email){
         this.email=email;
     }
@@ -21,5 +22,11 @@ public class user {
     }
     public String getName(){
         return name;
+    }
+    public void setId(int id){
+        this.id=id;
+    }
+    public int getId(){
+        return id;
     }
 }

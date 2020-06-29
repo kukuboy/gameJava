@@ -3,6 +3,7 @@ package servlet;
 import DB.mySql;
 import com.alibaba.fastjson.JSONObject;
 import data.data;
+import data.user;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Connection conn = mySql.getConnection();
-        List<data> data = new ArrayList<>();
+        List<user> user = new ArrayList<>();
         data st = new data();
         try {
             String driverName = "com.mysql.cj.jdbc.Driver";
@@ -29,15 +30,20 @@ public class login extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             System.out.println("邮箱为："+email+"密码为:"+password);
-            String sql = "select * from user where email="+email+" and password = "+password;
+            String sql = "select * from user where email='"+email+"' and password = "+password;
             response.setContentType("text/html");
             response.setCharacterEncoding("UTF-8");
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             if (resultSet.next()) {
+                user u = new user();
+                u.setName(resultSet.getString("name"));
+                u.setId(resultSet.getInt("id"));
                 st.setFlag(0);
                 st.setCode("200");
                 st.setMsg("登录成功");
+                user.add(u);
+                st.setData(user);
             } else {
                 st.setFlag(1);
                 st.setCode("200");

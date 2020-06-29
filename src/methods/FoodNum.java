@@ -10,6 +10,7 @@ import java.sql.Statement;
 public class FoodNum {
 
     public static boolean NumAdd(String name) throws SQLException, ClassNotFoundException {
+        Long startTs = System.currentTimeMillis();
         String driverName = "com.mysql.cj.jdbc.Driver";
         Class.forName(driverName);//反射JDBC包，这个一定要加，不然会报错
         String sql = "select * from food where name = '" + name + "'";

@@ -2,12 +2,18 @@
   <artifact type="war" name="gameJava">
     <output-path>$PROJECT_DIR$/out/artifacts/gameJava</output-path>
     <root id="archive" name="gameJava.war">
-      <element id="javaee-facet-resources" facet="gameJava/web/Web" />
       <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mail.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.2.62.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.18.jar" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+        </element>
         <element id="directory" name="classes">
           <element id="module-output" name="gameJava" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="gameJava/web/Web" />
     </root>
   </artifact>
 </component>
