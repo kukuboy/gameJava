@@ -10,7 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +31,19 @@ public class getPower extends HttpServlet {
             String driverName = "com.mysql.cj.jdbc.Driver";
             Class.forName(driverName);//反射JDBC包，这个一定要加，不然会报错
             // 设置响应内容类型
-            int id = Integer.parseInt(request.getParameter("id"));
+            //获取post参数
+            StringBuffer sb = new StringBuffer();
+            InputStream is = request.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+            String s = "";
+            while ((s = br.readLine()) != null) {
+                sb.append(s);
+            }
+            String str = sb.toString();
+            JSONObject jsonObject = JSONObject.parseObject(str);
+            //获取对应的值
+            int id = jsonObject.getInteger("id");
             System.out.println("id为："+id);
             String sql = "select * from power where id="+id;
             response.setContentType("text/html");

@@ -6,7 +6,7 @@ public class data {
     int flag;
     String code;
     String msg;
-    List data;
+    Object data;
     public void setFlag(int flag){
         this.flag=flag;
     }
@@ -25,10 +25,10 @@ public class data {
     public String getMsg(){
         return msg;
     }
-    public void setData(List data){
+    public void setData(Object data){
         this.data=data;
     }
-    public List getData(){
+    public Object getData(){
         return data;
     }
 }
