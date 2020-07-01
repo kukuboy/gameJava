@@ -19,5 +19,13 @@
         <servlet-name>getPower</servlet-name>
         <url-pattern>/getPower</url-pattern>
     </servlet-mapping>
+      <servlet>
+    <servlet-name>getLevel</servlet-name>
+    <servlet-class>servlet.getLevel</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>getLevel</servlet-name>
+        <url-pattern>/getLevel</url-pattern>
+    </servlet-mapping>
 
 </web-app>

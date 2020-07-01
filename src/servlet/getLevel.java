@@ -3,7 +3,7 @@ package servlet;
 import DB.mySql;
 import com.alibaba.fastjson.JSONObject;
 import data.data;
-import data.power;
+import data.level;
 import methods.powerAdd;
 
 import javax.servlet.ServletException;
@@ -21,11 +21,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class getPower extends HttpServlet {
+public class getLevel extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Connection conn = mySql.getConnection();
-        Object power = new Object();
+        Object data = new Object();
         data st = new data();
         try {
             String driverName = "com.mysql.cj.jdbc.Driver";
@@ -43,28 +43,23 @@ public class getPower extends HttpServlet {
             String str = sb.toString();
             JSONObject jsonObject = JSONObject.parseObject(str);
             //获取对应的值
-            int id = jsonObject.getInteger("id");
-            System.out.println("id为："+id);
-            String sql = "select * from power where id="+id;
+            int level = jsonObject.getInteger("level");
+            System.out.println("level为："+level);
+            String sql = "select * from level where level="+level;
             response.setContentType("text/html");
             response.setCharacterEncoding("UTF-8");
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             if (resultSet.next()) {
-                power p = new power();
-                p.setId(resultSet.getInt("id"));
-                p.setLevel(resultSet.getInt("level"));
-                p.setOwn(resultSet.getString("own"));
-                p.setBri(resultSet.getInt("bri"));
-                p.setP(resultSet.getString("p"));
-                p.setS(resultSet.getString("s"));
-                p.setT(resultSet.getString("t"));
+                level sqlData = new level();
+                sqlData.setLevel(resultSet.getInt("level"));
+                sqlData.setBright(resultSet.getString("Bright"));
+                sqlData.setDark(resultSet.getString("Dark"));
                 st.setFlag(0);
                 st.setCode("200");
                 st.setMsg("获取信息成功");
-                power=p;
-                st.setData(power);
-//                powerAdd.NumAdd(id);
+                data=sqlData;
+                st.setData(data);
             } else {
                 st.setFlag(1);
                 st.setCode("200");
