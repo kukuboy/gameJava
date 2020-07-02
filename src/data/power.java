@@ -3,51 +3,74 @@ package data;
 public class power {
     int level;
     int id;
-    String own;
+    int own;
+    int money;
     int bri;
-    String p;
-    String s;
-    String t;
-    public void setLevel(int level){
-        this.level=level;
+    int p;
+    int s;
+    int t;
+
+    public void setLevel(int level) {
+        this.level = level;
     }
-    public int getLevel(){
+
+    public int getLevel() {
         return level;
     }
-    public void setId(int id){
-        this.id=id;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
-    public void setOwn(String own){
-        this.own=own;
+
+    public void setOwn(int own) {
+        this.own = own;
     }
-    public String getOwn(){
+
+    public int getOwn() {
         return own;
     }
-    public void setBri(int bri){
-        this.bri=bri;
+
+    public void setMoney(int money) {
+        this.money = money;
     }
-    public int getBri(){
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setBri(int bri) {
+        this.bri = bri;
+    }
+
+    public int getBri() {
         return bri;
     }
-    public void setP(String p){
-        this.p=p;
+
+    public void setP(int p) {
+        this.p = p;
     }
-    public String getP(){
+
+    public int getP() {
         return p;
     }
-    public void setS(String s){
-        this.s=s;
+
+    public void setS(int s) {
+        this.s = s;
     }
-    public String getS(){
+
+    public int getS() {
         return s;
     }
-    public void setT(String t){
-        this.t=t;
+
+    public void setT(int t) {
+        this.t = t;
     }
-    public String getT(){
+
+    public int getT() {
         return t;
     }
 }

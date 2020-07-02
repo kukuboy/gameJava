@@ -39,10 +39,10 @@ public class setPower extends HttpServlet {
                 power p = new power();
                 p.setId(resultSet.getInt("id"));
                 p.setLevel(resultSet.getInt("level"));
-                p.setOwn(resultSet.getString("own"));
-                p.setP(resultSet.getString("p"));
-                p.setS(resultSet.getString("s"));
-                p.setT(resultSet.getString("t"));
+                p.setOwn(resultSet.getInt("own"));
+                p.setP(resultSet.getInt("p"));
+                p.setS(resultSet.getInt("s"));
+                p.setT(resultSet.getInt("t"));
                 st.setFlag(0);
                 st.setCode("200");
                 st.setMsg("获取信息成功");
